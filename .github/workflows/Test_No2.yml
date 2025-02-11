@@ -14,13 +14,13 @@ jobs:
           run: sudo apt-get install cowsay -y
 
         - name: Execute cowsay
-          run: cowsay -f shark "Run for cover, I am Rozi's SHARK....HRRR" >> shark.txt
+          run: cowsay -f dragon "Run for cover, I am Rozi's DRAGON....RAWR" >> dragon.txt
 
-        - name: Uploading shark.txt
+        - name: Uploading dragon.txt
           uses: actions/upload-artifact@v4
           with:
             name: my-artifact
-            path: shark.txt
+            path: dragon.txt
 
     job_No2:
         needs: job_No1
@@ -32,7 +32,7 @@ jobs:
             name: my-artifact
 
         - name: If file exists
-          run: grep -i "shark" shark.txt
+          run: grep -i "dragon" dragon.txt
 
         - name: Print result
-          run: cat shark.txt
+          run: cat dragon.txt
