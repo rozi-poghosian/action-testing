@@ -1,0 +1,31 @@
+name: Exploring Variables and Secrets
+
+on:
+  push
+
+env: 
+  REGISTRY: docker.io
+  USERNAME: siddharth1
+  IMAGE: github-actions-nginx
+
+jobs:
+  docker:
+    runs-on: ubuntu-latest
+    steps:
+    - name: docker build
+      run: echo docker build -t $REGISTRY/$USERNAME/$IMAGE:latest
+
+    - name: docker login
+      env: 
+        PASS: s3cUrePaSsword
+      run: echo docker login --username:$USERNAME --password:$PASS
+    
+    - name: docker publish
+      run: echo docker push $REGISTRY/$USERNAME/$IMAGE:latest
+
+  deploy: 
+    needs: docker
+    runs-on: ubuntu-latest
+    steps:
+    - name: docker run
+      run: echo docker run -d -p 8080:80 $REGISTRY/$USERNAME/$IMAGE:latest
