@@ -1,7 +1,7 @@
-name: Exploring workflow_dispatch
-
+name: Scheduled
 on: 
-  workflow_dispatch
+  schedule:
+    - cron: "*/2 * * * *"
 
 jobs:
   docker:
