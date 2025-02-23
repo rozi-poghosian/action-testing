@@ -1,8 +1,7 @@
-name: Exploring Secrets
+name: Exploring workflow_dispatch
 
 on: 
   workflow_dispatch
-  
 
 jobs:
   docker:
