@@ -1,6 +1,6 @@
 name: Sleeping 2m
 on: 
-  push
+  workflow_dispatch
 
 jobs:
   docker:
