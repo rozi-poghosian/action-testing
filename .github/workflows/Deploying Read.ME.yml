@@ -24,4 +24,3 @@ jobs:
       - name: Copy README.md to Master Node
         run: |
           scp README.md root@${{ secrets.MASTER_NODE_IP }}:/root/
-          ls /root/
